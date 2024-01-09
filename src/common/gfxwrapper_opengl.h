@@ -205,7 +205,8 @@ Platform headers / declarations
 #include <pthread.h>  // for pthread_create() etc.
 #if defined(__DragonFly__)
 #include <stdlib.h>
-#else
+#endif
+#if !defined(__DragonFly__)
 #include <malloc.h>   // for memalign
 #if defined(OS_LINUX_XLIB)
 #define XR_USE_PLATFORM_XLIB 1

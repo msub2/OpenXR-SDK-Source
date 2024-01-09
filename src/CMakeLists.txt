@@ -162,10 +162,16 @@ cmake_dependent_option(
 )
 
 # Several files use these compile time OS switches
+# CMake 3.25+ has a built-in BSD variable that should replace this manually created one when possible
+set(BSD_FLAVORS "FreeBSD" "OpenBSD" "NetBSD" "DragonFlyBSD")
+if (CMAKE_SYSTEM_NAME IN_LIST BSD_FLAVORS)
+    set(ISBSD true)
+
 if(WIN32)
     add_definitions(-DXR_OS_WINDOWS)
     add_definitions(-DNOMINMAX)
-elseif(CMAKE_SYSTEM_NAME STREQUAL "Linux")
+# BSD can follow the same codepaths as Linux
+elseif(CMAKE_SYSTEM_NAME STREQUAL "Linux" OR ${ISBSD})
     add_definitions(-DXR_OS_LINUX)
 elseif(ANDROID)
     add_definitions(-DXR_OS_ANDROID)
@@ -240,11 +246,11 @@ if((OPENGL_FOUND OR OpenGLES_FOUND)
     )
 endif()
 
-# Determine the presentation backend for Linux systems.
+# Determine the presentation backend for Linux or BSD systems.
 # Use an include because the code is pretty big.
-if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
+if(CMAKE_SYSTEM_NAME STREQUAL "Linux" OR ${ISBSD})
     include(presentation)
-endif()
+    endif()
 
 # Several files use these compile time platform switches
 if(WIN32)

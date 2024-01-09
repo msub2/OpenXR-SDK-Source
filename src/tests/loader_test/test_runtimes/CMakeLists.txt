@@ -40,6 +40,7 @@ add_dependencies(test_runtime xr_global_generated_files)
 target_include_directories(
     test_runtime PRIVATE ${PROJECT_SOURCE_DIR}/src
                          ${PROJECT_SOURCE_DIR}/src/common
+                         "${CMAKE_INSTALL_PREFIX}/include"
 )
 if(XR_USE_GRAPHICS_API_VULKAN)
     target_include_directories(test_runtime PRIVATE ${Vulkan_INCLUDE_DIRS})

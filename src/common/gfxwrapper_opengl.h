@@ -127,7 +127,7 @@ extern "C" {
 #elif defined(__MAC_OS_X_VERSION_MAX_ALLOWED) && __MAC_OS_X_VERSION_MAX_ALLOWED
 #define OS_APPLE_MACOS
 #endif
-#elif defined(__linux__)
+#elif defined(__linux__) || defined(__FreeBSD__) || defined(__OpenBSD__) || defined(__NetBSD__) || defined(__DragonFly__)
 #define OS_LINUX
 #else
 #error "unknown platform"

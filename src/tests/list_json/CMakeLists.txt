@@ -38,6 +38,7 @@ target_link_libraries(openxr_runtime_list_json PRIVATE OpenXR::openxr_loader)
 target_include_directories(
     openxr_runtime_list_json PRIVATE "${PROJECT_SOURCE_DIR}/src"
                                      "${PROJECT_SOURCE_DIR}/src/common"
+                                     "${CMAKE_INSTALL_PREFIX}/include"
 )
 target_link_libraries(openxr_runtime_list_json PRIVATE OpenXR::openxr_loader)
 

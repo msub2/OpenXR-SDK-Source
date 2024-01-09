@@ -40,6 +40,7 @@ add_dependencies(XrApiLayer_test xr_global_generated_files)
 target_include_directories(
     XrApiLayer_test PRIVATE "${PROJECT_SOURCE_DIR}/src"
                             "${PROJECT_SOURCE_DIR}/src/common"
+                            "${CMAKE_INSTALL_PREFIX}/include"
 )
 if(XR_USE_GRAPHICS_API_VULKAN)
     target_include_directories(XrApiLayer_test PRIVATE ${Vulkan_INCLUDE_DIRS})

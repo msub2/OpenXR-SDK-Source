@@ -20,6 +20,7 @@ target_include_directories(
     openxr_runtime_list
     PRIVATE "${PROJECT_SOURCE_DIR}/src" "${PROJECT_SOURCE_DIR}/src/common"
             "${PROJECT_SOURCE_DIR}/external/include"
+            "${CMAKE_INSTALL_PREFIX}/include"
 )
 if(XR_USE_GRAPHICS_API_VULKAN)
     target_include_directories(

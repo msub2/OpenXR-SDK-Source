@@ -55,6 +55,7 @@ if(PRESENTATION_BACKEND MATCHES "xlib")
 
     if(TARGET openxr-gfxwrapper)
         target_compile_definitions(openxr-gfxwrapper PUBLIC OS_LINUX_XLIB)
+        target_include_directories(openxr-gfxwrapper PRIVATE ${X11_INCLUDE_DIR})
         target_link_libraries(openxr-gfxwrapper PRIVATE ${X11_X11_LIB} ${X11_Xxf86vm_LIB} ${X11_Xrandr_LIB})
 
         # OpenGL::OpenGL already linked, we just need to add GLX.

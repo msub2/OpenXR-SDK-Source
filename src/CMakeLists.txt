@@ -253,7 +253,7 @@ endif()
 # Use an include because the code is pretty big.
 if(CMAKE_SYSTEM_NAME STREQUAL "Linux" OR ISBSD)
     include(presentation)
-    endif()
+endif()
 
 # Several files use these compile time platform switches
 if(WIN32)

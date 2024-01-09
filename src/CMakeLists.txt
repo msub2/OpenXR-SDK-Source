@@ -166,13 +166,15 @@ cmake_dependent_option(
 set(BSD_FLAVORS "FreeBSD" "OpenBSD" "NetBSD" "DragonFlyBSD")
 if (CMAKE_SYSTEM_NAME IN_LIST BSD_FLAVORS)
     set(ISBSD true)
+else()
+    set(ISBSD false)
 endif()
 
 if(WIN32)
     add_definitions(-DXR_OS_WINDOWS)
     add_definitions(-DNOMINMAX)
 # BSD can follow the same codepaths as Linux
-elseif((CMAKE_SYSTEM_NAME STREQUAL "Linux") OR ${ISBSD})
+elseif(CMAKE_SYSTEM_NAME STREQUAL "Linux" OR ISBSD)
     add_definitions(-DXR_OS_LINUX)
 elseif(ANDROID)
     add_definitions(-DXR_OS_ANDROID)

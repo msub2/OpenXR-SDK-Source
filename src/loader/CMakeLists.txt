@@ -237,6 +237,8 @@ elseif(WIN32)
     endif()
 
     target_link_libraries(openxr_loader PUBLIC advapi32)
+elseif(ISBSD)
+    target_link_libraries(openxr_loader PRIVATE c)
 endif()
 
 # Need to copy DLL to client directories so clients can easily load it.

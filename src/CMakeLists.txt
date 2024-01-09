@@ -165,9 +165,9 @@ cmake_dependent_option(
 # CMake 3.25+ has a built-in BSD variable that should replace this manually created one when possible
 set(BSD_FLAVORS "FreeBSD" "OpenBSD" "NetBSD" "DragonFlyBSD")
 if (CMAKE_SYSTEM_NAME IN_LIST BSD_FLAVORS)
-    set(ISBSD true)
+    set(ISBSD true CACHE INTERNAL "")
 else()
-    set(ISBSD false)
+    set(ISBSD false CACHE INTERNAL "")
 endif()
 
 if(WIN32)

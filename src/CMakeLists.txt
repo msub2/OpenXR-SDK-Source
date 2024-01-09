@@ -172,7 +172,7 @@ if(WIN32)
     add_definitions(-DXR_OS_WINDOWS)
     add_definitions(-DNOMINMAX)
 # BSD can follow the same codepaths as Linux
-elseif(CMAKE_SYSTEM_NAME STREQUAL "Linux" OR ${ISBSD})
+elseif((CMAKE_SYSTEM_NAME STREQUAL "Linux") OR ${ISBSD})
     add_definitions(-DXR_OS_LINUX)
 elseif(ANDROID)
     add_definitions(-DXR_OS_ANDROID)

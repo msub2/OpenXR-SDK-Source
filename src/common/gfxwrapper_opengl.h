@@ -208,6 +208,7 @@ Platform headers / declarations
 #endif
 #if !defined(__DragonFly__)
 #include <malloc.h>   // for memalign
+#endif
 #if defined(OS_LINUX_XLIB)
 #define XR_USE_PLATFORM_XLIB 1
 

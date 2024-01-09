@@ -94,6 +94,11 @@ openxr_add_filesystem_utils(openxr_loader)
 set_target_properties(
     openxr_loader PROPERTIES DEBUG_POSTFIX "${OPENXR_DEBUG_POSTFIX}"
 )
+
+#Needed for some BSD variants
+if (X11_FOUND)
+    target_include_directories(openxr_loader PRIVATE ${X11_INCLUDE_DIR})
+endif()
 # TODO remove once we get rid of add_definitions()
 if(Vulkan_FOUND)
     target_include_directories(openxr_loader PRIVATE ${Vulkan_INCLUDE_DIR})

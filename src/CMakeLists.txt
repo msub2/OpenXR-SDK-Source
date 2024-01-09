@@ -251,7 +251,7 @@ endif()
 
 # Determine the presentation backend for Linux or BSD systems.
 # Use an include because the code is pretty big.
-if(CMAKE_SYSTEM_NAME STREQUAL "Linux" OR ${ISBSD})
+if(CMAKE_SYSTEM_NAME STREQUAL "Linux" OR ISBSD)
     include(presentation)
     endif()
 

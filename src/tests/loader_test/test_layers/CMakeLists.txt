@@ -46,6 +46,10 @@ if(XR_USE_GRAPHICS_API_VULKAN)
     target_include_directories(XrApiLayer_test PRIVATE ${Vulkan_INCLUDE_DIRS})
 endif()
 
+if(BUILD_WITH_XLIB_HEADERS)
+    target_include_directories(XrApiLayer_test PRIVATE ${X11_INCLUDE_DIR})
+endif()
+
 if(CMAKE_SYSTEM_NAME STREQUAL "Windows")
     target_compile_definitions(XrApiLayer_test PRIVATE _CRT_SECURE_NO_WARNINGS)
     # Turn off transitional "changed behavior" warning message for Visual Studio versions prior to 2015.

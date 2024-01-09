@@ -28,6 +28,10 @@ if(XR_USE_GRAPHICS_API_VULKAN)
     )
 endif()
 
+if(BUILD_WITH_XLIB_HEADERS)
+    target_include_directories(openxr_runtime_list PRIVATE ${X11_INCLUDE_DIR})
+endif()
+
 target_link_libraries(openxr_runtime_list OpenXR::openxr_loader)
 if(MSVC)
     target_compile_options(

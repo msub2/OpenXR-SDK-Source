@@ -46,6 +46,10 @@ if(XR_USE_GRAPHICS_API_VULKAN)
     target_include_directories(test_runtime PRIVATE ${Vulkan_INCLUDE_DIRS})
 endif()
 
+if(BUILD_WITH_XLIB_HEADERS)
+    target_include_directories(test_runtime PRIVATE ${X11_INCLUDE_DIR})
+endif()
+
 macro(gen_xr_runtime_json filename libfile)
     add_custom_command(
         OUTPUT ${filename}

@@ -42,6 +42,9 @@ if(XR_USE_GRAPHICS_API_VULKAN)
         openxr_c_compile_test PRIVATE ${Vulkan_INCLUDE_DIRS}
     )
 endif()
+if(BUILD_WITH_XLIB_HEADERS)
+    target_include_directories(openxr_c_compile_test PRIVATE ${X11_INCLUDE_DIR})
+endif()
 
 target_link_libraries(openxr_c_compile_test OpenXR::openxr_loader)
 if(MSVC)

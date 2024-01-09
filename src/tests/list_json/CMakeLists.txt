@@ -49,6 +49,10 @@ if(XR_USE_GRAPHICS_API_VULKAN)
     target_link_libraries(openxr_runtime_list_json PRIVATE ${Vulkan_LIBRARY})
 endif()
 
+if(BUILD_WITH_XLIB_HEADERS)
+    target_include_directories(openxr_runtime_list_json PRIVATE ${X11_INCLUDE_DIR})
+endif()
+
 if(WIN32)
     if(MSVC)
         target_compile_definitions(

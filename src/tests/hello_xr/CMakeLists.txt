@@ -123,6 +123,10 @@ if(XR_USE_GRAPHICS_API_VULKAN)
     target_link_libraries(hello_xr PRIVATE ${Vulkan_LIBRARY})
 endif()
 
+if(BUILD_WITH_XLIB_HEADERS)
+    target_include_directories(hello_xr PRIVATE ${X11_INCLUDE_DIR})
+endif()
+
 if(TARGET openxr-gfxwrapper)
     target_link_libraries(hello_xr PRIVATE openxr-gfxwrapper)
 endif()

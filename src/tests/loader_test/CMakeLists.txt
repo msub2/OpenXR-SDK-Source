@@ -42,6 +42,10 @@ if(XR_USE_GRAPHICS_API_VULKAN)
     target_include_directories(loader_test PRIVATE ${Vulkan_INCLUDE_DIRS})
 endif()
 
+if(BUILD_WITH_XLIB_HEADERS)
+    target_include_directories(openxr_c_compile_test PRIVATE ${X11_INCLUDE_DIR})
+endif()
+
 if(WIN32)
     if(MSVC)
         target_compile_definitions(loader_test PRIVATE _CRT_SECURE_NO_WARNINGS)

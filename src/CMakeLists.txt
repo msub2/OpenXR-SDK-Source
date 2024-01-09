@@ -166,6 +166,7 @@ cmake_dependent_option(
 set(BSD_FLAVORS "FreeBSD" "OpenBSD" "NetBSD" "DragonFlyBSD")
 if (CMAKE_SYSTEM_NAME IN_LIST BSD_FLAVORS)
     set(ISBSD true)
+endif()
 
 if(WIN32)
     add_definitions(-DXR_OS_WINDOWS)

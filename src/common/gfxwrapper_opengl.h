@@ -203,10 +203,9 @@ Platform headers / declarations
 #define __USE_UNIX98 1  // for pthread_mutexattr_settype
 #endif
 #include <pthread.h>  // for pthread_create() etc.
-#if defined(__DragonFly__)
+#if defined(__DragonFly__) || defined(__OpenBSD__)
 #include <stdlib.h>
-#endif
-#if !defined(__DragonFly__)
+#else
 #include <malloc.h>   // for memalign
 #endif
 #if defined(OS_LINUX_XLIB)
